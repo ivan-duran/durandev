@@ -11,7 +11,7 @@ import { Briefcase, GraduationCap } from "@lucide/astro";
 import { siteConfig } from "../../config";
 import { getLocalizedEntry } from "../../i18n/content";
 import { t, type Locale } from "../../i18n";
-import durandevLogo from "../../assets/durandev-avatar.png";
+import avatar from "../../assets/avatar.jpg";
 
 interface Props {
   locale: Locale;
@@ -41,7 +41,7 @@ const { Content: AboutContent } = await render(aboutEntry);
       name={siteConfig.name}
       title={profile.title}
       description={profile.description}
-      avatar={durandevLogo}
+      avatar={avatar}
       location={profile.location}
       email={siteConfig.email}
       socialLinks={siteConfig.socialLinks}

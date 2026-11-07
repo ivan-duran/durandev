@@ -98,7 +98,7 @@ export interface SiteConfig {
  */
 export const siteConfig: SiteConfig = {
   name: "Iván Durán",
-  avatar: "../assets/durandev-avatar.png",
+  avatar: "../assets/avatar.jpg",
   email: "ivan@durandev.com",
   profile: {
     es: {
