@@ -74,6 +74,8 @@ const about = defineCollection({
     ...localizedFields,
     title: z.string(),
     photo: z.string().optional(),
+    /** Optional photo shown below the md breakpoint instead of `photo` */
+    photoMobile: z.string().optional(),
   }),
 });
 
