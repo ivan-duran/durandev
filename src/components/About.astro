@@ -6,10 +6,12 @@ interface Props {
   locale: Locale;
   title: string;
   photo?: string;
+  /** Optional photo used below the md breakpoint instead of `photo` */
+  photoMobile?: string;
   Content: any;
 }
 
-const { locale, title, photo, Content } = Astro.props;
+const { locale, title, photo, photoMobile, Content } = Astro.props;
 const copy = t(locale);
 ---
 
@@ -19,12 +21,15 @@ const copy = t(locale);
       {
         photo && (
           <figure class="w-full md:w-48 md:shrink-0">
-            <img
-              src={photo}
-              alt={title}
-              class="w-full h-56 md:h-full object-cover"
-              loading="lazy"
-            />
+            <picture class="contents">
+              {photoMobile && <source media="(min-width: 48rem)" srcset={photo} />}
+              <img
+                src={photoMobile ?? photo}
+                alt={title}
+                class="w-full aspect-[5/4] md:aspect-auto md:h-full object-cover object-top"
+                loading="lazy"
+              />
+            </picture>
           </figure>
         )
       }
